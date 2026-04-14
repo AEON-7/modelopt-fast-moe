@@ -18,7 +18,7 @@ import torch.nn as nn
 import modelopt.torch.quantization as mtq
 from modelopt.torch.quantization.nn import QuantModule, QuantModuleRegistry
 
-from adaptive_bs import make_adaptive_calibrate_loop
+from modelopt_fast_moe import make_adaptive_calibrate_loop
 
 
 # ── Mini MoE (same as bench_calibration.py, inlined for standalone test) ─────
