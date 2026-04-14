@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "modelopt-fast-moe"
+version = "0.1.0"
+description = "VRAM-adaptive batched calibration for nvidia-modelopt MoE quantization. 3-10x speedup on awq_full, zero algorithm changes."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "AEON-7" },
+]
+keywords = [
+    "quantization",
+    "moe",
+    "mixture-of-experts",
+    "nvfp4",
+    "awq",
+    "modelopt",
+    "nvidia",
+    "llm",
+    "calibration",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "torch>=2.3",
+]
+
+[project.optional-dependencies]
+modelopt = ["nvidia-modelopt[torch]>=0.19"]
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/AEON-7/modelopt-fast-moe"
+Repository = "https://github.com/AEON-7/modelopt-fast-moe"
+Issues = "https://github.com/AEON-7/modelopt-fast-moe/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = ["E501"]  # line length handled by formatter
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
