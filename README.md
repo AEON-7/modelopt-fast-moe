@@ -1,5 +1,7 @@
 # modelopt-fast-moe
 
+
+[![☕ Tips](https://img.shields.io/badge/%E2%98%95_Tips-Support_the_work-ff5e5b?style=flat)](https://github.com/AEON-7/AEON-7#-support-the-work)
 **VRAM-adaptive batched calibration for [nvidia-modelopt](https://github.com/NVIDIA/TensorRT-Model-Optimizer) MoE quantization.**
 
 A drop-in replacement for the naive `for ids in calib_data: model(ids)` forward loop that most modelopt examples use. On Mixture-of-Experts models (Gemma4, Mixtral, Qwen-MoE, DeepSeek-MoE, etc.) the naive loop leaves the GPU at 25-30% utilization because Python dispatch overhead dominates — batching amortizes that overhead and cuts calibration wall-clock by **3–10×** with zero change to the AWQ algorithm itself.
@@ -208,3 +210,38 @@ Apache-2.0. See [LICENSE](LICENSE).
 Born from a 50-hour SuperGemma4 26B NVFP4 quantization job that had no business taking that long. Full story + benchmarks in the original [Gemma4 MoE quantization writeup](https://github.com/AEON-7/modelopt-fast-moe/blob/main/docs/gemma4-case-study.md) (coming soon).
 
 Thanks to NVIDIA for [nvidia-modelopt](https://github.com/NVIDIA/TensorRT-Model-Optimizer), which does all the hard AWQ algorithm work — this package just feeds it data faster.
+
+---
+
+## ☕ Support the work
+
+If this release has been useful, tips are deeply appreciated — they go directly toward more compute, more models, and more open releases.
+
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <strong>₿ Bitcoin (BTC)</strong><br/>
+      <img src="https://raw.githubusercontent.com/AEON-7/AEON-7/main/assets/qr/btc.png" alt="BTC QR" width="200"/><br/>
+      <sub><code>bc1q09xmzn00q4z3c5raene0f3pzn9d9pvawfm0py4</code></sub>
+    </td>
+    <td align="center" width="50%">
+      <strong>Ξ Ethereum (ETH)</strong><br/>
+      <img src="https://raw.githubusercontent.com/AEON-7/AEON-7/main/assets/qr/eth.png" alt="ETH QR" width="200"/><br/>
+      <sub><code>0x1512667F6D61454ad531d2E45C0a5d1fd82D0500</code></sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <strong>◎ Solana (SOL)</strong><br/>
+      <img src="https://raw.githubusercontent.com/AEON-7/AEON-7/main/assets/qr/sol.png" alt="SOL QR" width="200"/><br/>
+      <sub><code>DgQsjHdAnT5PNLQTNpJdpLS3tYGpVcsHQCkpoiAKsw8t</code></sub>
+    </td>
+    <td align="center" width="50%">
+      <strong>ⓜ Monero (XMR)</strong><br/>
+      <img src="https://raw.githubusercontent.com/AEON-7/AEON-7/main/assets/qr/xmr.png" alt="XMR QR" width="200"/><br/>
+      <sub><code>836XrSKw4R76vNi3QPJ5Fa9ugcyvE2cWmKSPv3AhpTNNKvqP8v5ba9JRL4Vh7UnFNjDz3E2GXZDVVenu3rkZaNdUFhjAvgd</code></sub>
+    </td>
+  </tr>
+</table>
+
+> **Ethereum L2s (Base, Arbitrum, Optimism, Polygon, etc.) and EVM-compatible tokens** can be sent to the same Ethereum address.
